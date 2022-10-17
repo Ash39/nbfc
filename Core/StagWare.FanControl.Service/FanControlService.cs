@@ -4,14 +4,14 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.ServiceModel;
 using System.Threading;
-using NLog;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using StagWare.Settings;
 using SettingsService = StagWare.Settings.SettingsService<StagWare.ServiceSettings>;
 
 namespace StagWare.FanControl.Service
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
     public class FanControlService : IFanControlService, IDisposable
     {
         #region Constants
@@ -24,7 +24,7 @@ namespace StagWare.FanControl.Service
 
         #region Private Fields
 
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly ILogger logger;
         private static readonly string ConfigsDirectory = Path.Combine(
                 Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
                 ConfigsDirectoryName);
@@ -38,15 +38,16 @@ namespace StagWare.FanControl.Service
 
         #region Constructors
 
-        public FanControlService()
+        public FanControlService(ILogger<FanControlService> logger)
         {
+            this.logger = logger;
             SettingsService.BaseDirectory = Environment.OSVersion.Platform == PlatformID.Unix
                 ? "/etc/"
                 : Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
 
             SettingsService.LoadSettingsFailed += (sender, args) =>
             {
-                logger.Error(args.Exception, "Failed to load settings. Restoring defaults.");
+                logger.LogError(args.Exception, "Failed to load settings. Restoring defaults.");
                 SettingsService.RestoreDefaults();
             };
 
@@ -132,7 +133,7 @@ namespace StagWare.FanControl.Service
 
                 if (string.IsNullOrWhiteSpace(selectedCfg))
                 {
-                    logger.Warn("An attempt to start the fan controller failed because no config is selected");
+                    logger.LogWarning("An attempt to start the fan controller failed because no config is selected");
                     return;
                 }
 
@@ -151,7 +152,7 @@ namespace StagWare.FanControl.Service
                 }
                 else
                 {
-                    logger.Error($"Failed to load config: {selectedCfg}");
+                    logger.LogError($"Failed to load config: {selectedCfg}");
                 }
             }
 
@@ -219,18 +220,18 @@ namespace StagWare.FanControl.Service
 
         public void Dispose()
         {
-            if (!this.disposed)
-            {
-                this.disposed = true;
-
-                if (this.fanControl != null)
-                {
-                    this.fanControl.Dispose();
-                    this.fanControl = null;
-                }
-
-                GC.SuppressFinalize(this);
-            }
+            // if (!this.disposed)
+            // {
+            //     this.disposed = true;
+            //
+            //     if (this.fanControl != null)
+            //     {
+            //         this.fanControl.Dispose();
+            //         this.fanControl = null;
+            //     }
+            //
+            //     GC.SuppressFinalize(this);
+            // }
         }
 
         #endregion
@@ -255,7 +256,7 @@ namespace StagWare.FanControl.Service
                 }
                 catch (TimeoutException e)
                 {
-                    logger.Warn(e, "Trying to start the service timed out. Retrying");
+                    logger.LogWarning(e, "Trying to start the service timed out. Retrying");
                     Thread.Sleep(3000);
                     this.fanControl.Start(SettingsService.Settings.ReadOnly);
                 }
@@ -266,7 +267,7 @@ namespace StagWare.FanControl.Service
 
         #region Private Methods
 
-        private static void SaveSettings()
+        private void SaveSettings()
         {
             try
             {
@@ -274,11 +275,11 @@ namespace StagWare.FanControl.Service
             }
             catch (Exception e)
             {
-                logger.Error(e, "Failed to save settings");
+                logger.LogError(e, "Failed to save settings");
             }
         }
 
-        private static bool TryInitializeFanControl(FanControlConfigV2 cfg, out FanControl fanControl)
+        private bool TryInitializeFanControl(FanControlConfigV2 cfg, out FanControl fanControl)
         {
             bool success = false;
             fanControl = null;

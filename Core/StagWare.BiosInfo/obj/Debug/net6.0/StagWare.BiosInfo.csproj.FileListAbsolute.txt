@@ -1,0 +1,12 @@
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/Debug/net6.0/StagWare.BiosInfo.csproj.AssemblyReference.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/Debug/net6.0/StagWare.BiosInfo.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/Debug/net6.0/StagWare.BiosInfo.AssemblyInfoInputs.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/Debug/net6.0/StagWare.BiosInfo.AssemblyInfo.cs
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/Debug/net6.0/StagWare.BiosInfo.csproj.CoreCompileInputs.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/bin/Debug/net6.0/StagWare.BiosInfo.deps.json
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/bin/Debug/net6.0/StagWare.BiosInfo.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/bin/Debug/net6.0/ref/StagWare.BiosInfo.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/bin/Debug/net6.0/StagWare.BiosInfo.pdb
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/Debug/net6.0/StagWare.BiosInfo.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/Debug/net6.0/ref/StagWare.BiosInfo.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/Debug/net6.0/StagWare.BiosInfo.pdb

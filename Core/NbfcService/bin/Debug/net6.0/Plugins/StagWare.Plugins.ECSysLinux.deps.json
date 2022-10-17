@@ -1,0 +1,119 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "StagWare.Plugins.ECSysLinux/1.0.0": {
+        "dependencies": {
+          "StagWare.FanControl": "1.0.0",
+          "Mono.Posix.NETStandard": "1.0.0.0",
+          "System.ComponentModel.Composition": "4.0.0.0"
+        },
+        "runtime": {
+          "StagWare.Plugins.ECSysLinux.dll": {}
+        }
+      },
+      "System.IO.Abstractions/17.2.3": {
+        "runtime": {
+          "lib/net6.0/System.IO.Abstractions.dll": {
+            "assemblyVersion": "17.0.0.0",
+            "fileVersion": "17.2.3.42299"
+          }
+        }
+      },
+      "StagWare.BiosInfo/1.0.0": {
+        "runtime": {
+          "StagWare.BiosInfo.dll": {}
+        }
+      },
+      "StagWare.FanControl/1.0.0": {
+        "dependencies": {
+          "StagWare.FanControl.Configurations": "1.0.0"
+        },
+        "runtime": {
+          "StagWare.FanControl.dll": {}
+        }
+      },
+      "StagWare.FanControl.Configurations/1.0.0": {
+        "dependencies": {
+          "StagWare.BiosInfo": "1.0.0",
+          "System.IO.Abstractions": "17.2.3"
+        },
+        "runtime": {
+          "StagWare.FanControl.Configurations.dll": {}
+        }
+      },
+      "Mono.Posix.NETStandard/1.0.0.0": {
+        "runtime": {
+          "Mono.Posix.NETStandard.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "System.ComponentModel.Composition/4.0.0.0": {
+        "runtime": {
+          "System.ComponentModel.Composition.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "NLog/5.0.0.0": {
+        "runtime": {
+          "NLog.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.4.1331"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StagWare.Plugins.ECSysLinux/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.IO.Abstractions/17.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VcozGeE4SxIo0cnXrDHhbrh/Gb8KQnZ3BvMelvh+iw0PrIKtuuA46U2Xm4e4pgnaWFgT4RdZfTpWl/WPRdw0WQ==",
+      "path": "system.io.abstractions/17.2.3",
+      "hashPath": "system.io.abstractions.17.2.3.nupkg.sha512"
+    },
+    "StagWare.BiosInfo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StagWare.FanControl/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StagWare.FanControl.Configurations/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Mono.Posix.NETStandard/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.ComponentModel.Composition/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NLog/5.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uI7Xyrr65gArMNwLX5GWMeZakSTiKjVYxeBvW5SZ5dxfg/oUiqBQuAEFlCUPZ1a1g8v/4znyf5/z3vvDC0x6KA==",
+  "success": true,
+  "projectFilePath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.FSTemperatureMonitor/StagWare.Plugins.FSTemperatureMonitor.csproj",
+  "expectedPackageFiles": [
+    "/root/.nuget/packages/system.io.abstractions/17.2.3/system.io.abstractions.17.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,11 +1,11 @@
 ﻿using clipr;
 using NbfcCli.CommandLineOptions;
-using NbfcCli.NbfcService;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.ServiceModel;
 using System.Text;
+using StagWare.FanControl.Service;
 
 namespace NbfcCli
 {
@@ -34,7 +34,9 @@ namespace NbfcCli
             var opt = new Verbs();
             var helpGen = new HelpGenerator<Verbs>();
             helpGen.DescriptionDistance = 25;
-            var parser = new CliParser<Verbs>(opt, ParserOptions.CaseInsensitive, helpGen);
+            ParserOptions options = ParserOptions.Default;
+            options.CaseInsensitive = true;
+            var parser = new CliParser<Verbs>(opt, options, helpGen);
             parser.StrictParse(args);
 
             if (opt.Start != null)
@@ -278,9 +280,7 @@ namespace NbfcCli
             {
                 using (var client = new FanControlServiceClient())
                 {
-                    client.Open();
                     action(client);
-                    client.Close();
                 }
             }
             catch (CommunicationObjectFaultedException)

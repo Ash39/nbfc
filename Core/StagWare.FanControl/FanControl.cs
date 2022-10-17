@@ -130,7 +130,7 @@ namespace StagWare.FanControl
             }
         }
 
-        internal FanControl(
+        public FanControl(
             FanControlConfigV2 config,
             ITemperatureFilter filter,
             IEmbeddedController ec,

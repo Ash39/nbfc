@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4U/fdCDlQHSWEP8gSL6Y+O0XeX5+zKTmx24K2MqBiEyEem0hbapVPubixkgFMRC6USjNpxaa4bfkyybw/oYCXg==",
+  "success": true,
+  "projectFilePath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj",
+  "expectedPackageFiles": [
+    "/root/.nuget/packages/system.io.abstractions/17.2.3/system.io.abstractions.17.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -169,7 +169,7 @@ namespace OpenHardwareMonitor.Hardware
             {
                 try
                 {
-                    isaBusMutex = Mutex.OpenExisting(mutexName, MutexRights.Synchronize);
+                    isaBusMutex = Mutex.OpenExisting(mutexName);
                 }
                 catch { }
             }

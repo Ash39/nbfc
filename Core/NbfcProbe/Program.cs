@@ -1,4 +1,4 @@
-using clipr;
+﻿using clipr;
 using NbfcProbe.CommandLineOptions;
 using StagWare.FanControl;
 using StagWare.FanControl.Plugins;
@@ -89,7 +89,9 @@ namespace NbfcProbe
                 + Environment.NewLine
                 + "Hexadecimal values may be entered by prefixing them with \"0x\".";
 
-            var parser = new CliParser<Verbs>(opt, ParserOptions.CaseInsensitive, helpGen);
+            ParserOptions options = ParserOptions.Default;
+            options.CaseInsensitive = true;
+            var parser = new CliParser<Verbs>(opt, options, helpGen);
             parser.StrictParse(args);
 
             if (opt.ECDump != null)

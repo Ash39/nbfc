@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace StagWare.FanControl
 {
-    internal class Fan
+    public class Fan
     {
         #region Constants
 

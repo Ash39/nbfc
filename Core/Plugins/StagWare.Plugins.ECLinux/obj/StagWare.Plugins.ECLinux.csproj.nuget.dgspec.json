@@ -1,0 +1,295 @@
+{
+  "format": 1,
+  "restore": {
+    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECLinux/StagWare.Plugins.ECLinux.csproj": {}
+  },
+  "projects": {
+    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/StagWare.Hardware.LPC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/StagWare.Hardware.LPC.csproj",
+        "projectName": "StagWare.Hardware.LPC",
+        "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/StagWare.Hardware.LPC.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECLinux/StagWare.Plugins.ECLinux.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECLinux/StagWare.Plugins.ECLinux.csproj",
+        "projectName": "StagWare.Plugins.ECLinux",
+        "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECLinux/StagWare.Plugins.ECLinux.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECLinux/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/StagWare.Hardware.LPC.csproj": {
+                "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/StagWare.Hardware.LPC.csproj"
+              },
+              "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj": {
+                "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Mono.Posix.NETStandard": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj",
+        "projectName": "StagWare.BiosInfo",
+        "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj",
+        "projectName": "StagWare.FanControl.Configurations",
+        "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj": {
+                "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "System.IO.Abstractions": {
+              "target": "Package",
+              "version": "[17.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj",
+        "projectName": "StagWare.FanControl",
+        "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj": {
+                "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/NbfcCli.deps.json
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/NbfcCli.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/ref/NbfcCli.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/NbfcCli.pdb
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.csproj.AssemblyReference.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.AssemblyInfoInputs.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.AssemblyInfo.cs
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.csproj.CoreCompileInputs.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.csproj.CopyComplete
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/ref/NbfcCli.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.pdb
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/NbfcCli
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/NbfcCli.runtimeconfig.json
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/Release/NbfcCli.genruntimeconfig.cache

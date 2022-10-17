@@ -1,0 +1,12 @@
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/Plugins/OpenHardwareMonitorLib.deps.json
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/Plugins/OpenHardwareMonitorLib.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/Plugins/ref/OpenHardwareMonitorLib.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/Plugins/OpenHardwareMonitorLib.pdb
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/Release/OpenHardwareMonitorLib.csproj.AssemblyReference.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/Release/OpenHardwareMonitorLib.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/Release/OpenHardwareMonitorLib.AssemblyInfoInputs.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/Release/OpenHardwareMonitorLib.AssemblyInfo.cs
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/Release/OpenHardwareMonitorLib.csproj.CoreCompileInputs.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/Release/OpenHardwareMonitorLib.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/Release/ref/OpenHardwareMonitorLib.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/Release/OpenHardwareMonitorLib.pdb

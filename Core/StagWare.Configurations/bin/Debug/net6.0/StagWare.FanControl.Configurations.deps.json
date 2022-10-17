@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "StagWare.FanControl.Configurations/1.0.0": {
+        "dependencies": {
+          "StagWare.BiosInfo": "1.0.0",
+          "System.IO.Abstractions": "17.2.3"
+        },
+        "runtime": {
+          "StagWare.FanControl.Configurations.dll": {}
+        }
+      },
+      "System.IO.Abstractions/17.2.3": {
+        "runtime": {
+          "lib/net6.0/System.IO.Abstractions.dll": {
+            "assemblyVersion": "17.0.0.0",
+            "fileVersion": "17.2.3.42299"
+          }
+        }
+      },
+      "StagWare.BiosInfo/1.0.0": {
+        "runtime": {
+          "StagWare.BiosInfo.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StagWare.FanControl.Configurations/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.IO.Abstractions/17.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VcozGeE4SxIo0cnXrDHhbrh/Gb8KQnZ3BvMelvh+iw0PrIKtuuA46U2Xm4e4pgnaWFgT4RdZfTpWl/WPRdw0WQ==",
+      "path": "system.io.abstractions/17.2.3",
+      "hashPath": "system.io.abstractions.17.2.3.nupkg.sha512"
+    },
+    "StagWare.BiosInfo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

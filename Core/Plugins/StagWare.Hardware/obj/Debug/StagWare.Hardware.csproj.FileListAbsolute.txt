@@ -1,0 +1,13 @@
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/Plugins/StagWare.Hardware.deps.json
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/Plugins/StagWare.Hardware.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/Plugins/ref/StagWare.Hardware.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/bin/Plugins/StagWare.Hardware.pdb
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/StagWare.Hardware.csproj.AssemblyReference.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/StagWare.Hardware.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/StagWare.Hardware.AssemblyInfoInputs.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/StagWare.Hardware.AssemblyInfo.cs
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/StagWare.Hardware.csproj.CoreCompileInputs.cache
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/StagWare.Hardware.csproj.CopyComplete
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/StagWare.Hardware.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/ref/StagWare.Hardware.dll
+/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/Debug/StagWare.Hardware.pdb
