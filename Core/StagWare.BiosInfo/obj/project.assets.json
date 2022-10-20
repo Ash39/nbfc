@@ -8,7 +8,7 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {}
+    "/home/anthony/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
@@ -16,11 +16,11 @@
       "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj",
       "projectName": "StagWare.BiosInfo",
       "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj",
-      "packagesPath": "/root/.nuget/packages/",
+      "packagesPath": "/home/anthony/.nuget/packages/",
       "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "/home/anthony/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

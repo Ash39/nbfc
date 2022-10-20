@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "dS8+/Zn9+mdljWfPjsMQq0GRbuXpA44qCW645XCFQFGZ8dlNhvWCKodqblNSlh82gS36wMO91i7Bc/ZqAJyjOA==",
+  "dgSpecHash": "g9vyNbQE0i7LPHyJCNogFKfCL5m7Xlb0KxcGIgPD+pwT6ZNUnE1i7XucbpJC/s+RuhTeYfu8Fb4QkvBEZrCDhA==",
   "success": true,
   "projectFilePath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl.Service/StagWare.FanControl.Service.csproj",
   "expectedPackageFiles": [
-    "/root/.nuget/packages/microsoft.extensions.dependencyinjection/6.0.0/microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.extensions.logging/6.0.0/microsoft.extensions.logging.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.2/microsoft.extensions.logging.abstractions.6.0.2.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.extensions.options/6.0.0/microsoft.extensions.options.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.io.abstractions/17.2.3/system.io.abstractions.17.2.3.nupkg.sha512",
-    "/root/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "/home/anthony/.nuget/packages/microsoft.extensions.dependencyinjection/6.0.0/microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "/home/anthony/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "/home/anthony/.nuget/packages/microsoft.extensions.logging/6.0.0/microsoft.extensions.logging.6.0.0.nupkg.sha512",
+    "/home/anthony/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.2/microsoft.extensions.logging.abstractions.6.0.2.nupkg.sha512",
+    "/home/anthony/.nuget/packages/microsoft.extensions.options/6.0.0/microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "/home/anthony/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "/home/anthony/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "/home/anthony/.nuget/packages/system.io.abstractions/17.2.3/system.io.abstractions.17.2.3.nupkg.sha512",
+    "/home/anthony/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

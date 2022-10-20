@@ -10,11 +10,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/StagWare.Hardware.LPC.csproj",
         "projectName": "StagWare.Hardware.LPC",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/StagWare.Hardware.LPC.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware.LPC/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -62,11 +62,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECLinux/StagWare.Plugins.ECLinux.csproj",
         "projectName": "StagWare.Plugins.ECLinux",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECLinux/StagWare.Plugins.ECLinux.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECLinux/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -127,11 +127,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj",
         "projectName": "StagWare.BiosInfo",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -179,11 +179,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj",
         "projectName": "StagWare.FanControl.Configurations",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -241,11 +241,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj",
         "projectName": "StagWare.FanControl",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

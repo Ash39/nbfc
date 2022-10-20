@@ -1,7 +1,9 @@
-﻿using OpenHardwareMonitor.Hardware;
+﻿using LibreHardwareMonitor.Hardware;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using LibreHardwareMonitor.Hardware.Motherboard.Lpc.EC;
 
 namespace StagWare.Hardware
 {
@@ -18,6 +20,11 @@ namespace StagWare.Hardware
         private IHardware[] gpus;
         private ISensor[][] gpuTempSensors;
 
+        public Action<uint, byte> WriteIoPort;
+        public Func<uint, byte> ReadIoPort;
+        public Func<int, bool> WaitIsaBusMutex;
+        public Action ReleaseIsaBusMutex;
+
         #endregion
 
         #region Constructor
@@ -25,8 +32,21 @@ namespace StagWare.Hardware
         private HardwareMonitor()
         {
             this.computer = new Computer();
-            this.computer.CPUEnabled = true;
+            this.computer.IsCpuEnabled = true;
+            this.computer.IsControllerEnabled = true;
             this.computer.Open();
+
+            Type ring0Type = typeof(Computer).Assembly.GetType("LibreHardwareMonitor.Hardware.Ring0")!;
+
+            this.WriteIoPort = (Action<uint, byte>)Delegate.CreateDelegate(typeof(Action<uint, byte>) ,ring0Type.GetMethod("WriteIoPort",
+                BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)!);
+            this.ReadIoPort = (Func<uint, byte>)Delegate.CreateDelegate(typeof(Func<uint, byte>) ,ring0Type.GetMethod("ReadIoPort",
+                BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)!);
+            
+            this.ReleaseIsaBusMutex = (Action)Delegate.CreateDelegate(typeof(Action) ,ring0Type.GetMethod("ReleaseIsaBusMutex", 
+                BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)!);
+            this.WaitIsaBusMutex = (Func<int, bool> )Delegate.CreateDelegate(typeof(Func<int, bool> ) ,ring0Type.GetMethod("WaitIsaBusMutex", 
+                BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)!);
         }
 
         #endregion
@@ -100,29 +120,6 @@ namespace StagWare.Hardware
 
         #endregion
 
-        #region Public Methods
-
-        public bool WaitIsaBusMutex(int timeout)
-        {
-            return this.computer.WaitIsaBusMutex(timeout);
-        }
-
-        public void ReleaseIsaBusMutex()
-        {
-            this.computer.ReleaseIsaBusMutex();
-        }
-
-        public void WriteIoPort(int port, byte value)
-        {
-            this.computer.WriteIoPort(port, value);
-        }
-
-        public byte ReadIoPort(int port)
-        {
-            return this.computer.ReadIoPort(port);
-        }
-
-        #endregion
 
         #region Private Methods
 
@@ -176,7 +173,7 @@ namespace StagWare.Hardware
 
         private void InitializeCpuSensors()
         {
-            this.cpus = GetHardware(HardwareType.CPU);
+            this.cpus = GetHardware(HardwareType.Cpu);
             this.cpuTempSensors = new ISensor[this.cpus.Length][];
             int sensorsTotal = 0;
 
@@ -196,7 +193,7 @@ namespace StagWare.Hardware
         private void InitializeGpuSensors()
         {
             var list = new List<IHardware>();
-            list.AddRange(GetHardware(HardwareType.GpuAti));
+            list.AddRange(GetHardware(HardwareType.GpuAmd));
             list.AddRange(GetHardware(HardwareType.GpuNvidia));
 
             this.gpus = list.ToArray();

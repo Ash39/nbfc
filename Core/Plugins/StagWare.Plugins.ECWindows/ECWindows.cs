@@ -60,12 +60,12 @@ namespace StagWare.Plugins
 
         protected override void WritePort(int port, byte value)
         {
-            this.hwMon.WriteIoPort(port, value);
+            this.hwMon.WriteIoPort((uint)port, value);
         }
 
         protected override byte ReadPort(int port)
         {
-            return this.hwMon.ReadIoPort(port);
+            return this.hwMon.ReadIoPort((uint)port);
         }
 
         #endregion

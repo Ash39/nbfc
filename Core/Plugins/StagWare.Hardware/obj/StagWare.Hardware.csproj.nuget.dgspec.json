@@ -4,17 +4,17 @@
     "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/StagWare.Hardware.csproj": {}
   },
   "projects": {
-    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/OpenHardwareMonitorLib.csproj": {
+    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/StagWare.Hardware.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/OpenHardwareMonitorLib.csproj",
-        "projectName": "OpenHardwareMonitorLib",
-        "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/OpenHardwareMonitorLib.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/obj/",
+        "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/StagWare.Hardware.csproj",
+        "projectName": "StagWare.Hardware",
+        "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/StagWare.Hardware.csproj",
+        "packagesPath": "/home/anthony/.nuget/packages/",
+        "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -38,75 +38,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "System.IO.FileSystem.AccessControl": {
+            "LibreHardwareMonitorLib": {
               "target": "Package",
-              "version": "[5.0.0, )"
-            },
-            "System.IO.Ports": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "System.Management": {
-              "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[0.9.1, )"
             }
           },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/StagWare.Hardware.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/StagWare.Hardware.csproj",
-        "projectName": "StagWare.Hardware",
-        "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/StagWare.Hardware.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Hardware/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/OpenHardwareMonitorLib.csproj": {
-                "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/OpenHardwareMonitor/OpenHardwareMonitorLib.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
           "imports": [
             "net461",
             "net462",

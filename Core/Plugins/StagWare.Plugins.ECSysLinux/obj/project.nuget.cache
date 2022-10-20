@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rGGsLYUzVMV1sDJFDJYNM4VnU7wdWRYN0AOLHUbDsYyo27DQXrP251CTZpSw4jD2ZxYgLyxRb/Sz+fjpVN4NwQ==",
+  "dgSpecHash": "IEgOpufH8MV8pqEvm6vz5hVcaOI3x5/WnZqjNu+CjJltDyUXmTrNZyQCyHFkDp+vfvWYPNFSeXdGF5wkgTLFRw==",
   "success": true,
   "projectFilePath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECSysLinux/StagWare.Plugins.ECSysLinux.csproj",
   "expectedPackageFiles": [
-    "/root/.nuget/packages/system.io.abstractions/17.2.3/system.io.abstractions.17.2.3.nupkg.sha512"
+    "/home/anthony/.nuget/packages/system.io.abstractions/17.2.3/system.io.abstractions.17.2.3.nupkg.sha512"
   ],
   "logs": []
 }

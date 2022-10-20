@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "bcpVQBHdUjay3K3hBc+azsxCWNcbnwZlmzeUhrJ/P0Ga1z7LWGUe8vThuYQZQuqijrvOzcebO3fjIt4U1ges8Q==",
+  "dgSpecHash": "zZfAob3RwldSgeGotbNehgtAc+/Cy7Nm8ovJW3uw2s0/dGTt0VkS8VOWhSHRPcffdDpoH1pjiumtGprwMVOBZg==",
   "success": true,
   "projectFilePath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Windows/ConfigEditor/ConfigEditor.csproj",
   "expectedPackageFiles": [
-    "/root/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.netframework.referenceassemblies.net461/1.0.2/microsoft.netframework.referenceassemblies.net461.1.0.2.nupkg.sha512",
-    "/root/.nuget/packages/system.io.abstractions/17.2.3/system.io.abstractions.17.2.3.nupkg.sha512"
+    "/home/anthony/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/anthony/.nuget/packages/microsoft.netframework.referenceassemblies.net461/1.0.2/microsoft.netframework.referenceassemblies.net461.1.0.2.nupkg.sha512",
+    "/home/anthony/.nuget/packages/system.io.abstractions/17.2.3/system.io.abstractions.17.2.3.nupkg.sha512"
   ],
   "logs": []
 }

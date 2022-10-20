@@ -1,24 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "m6AdSYZGcVws4mGec8ZJTo9LVc+0Fz7PLEgf4aKID0nCNOBXNKg8oQmxuJmiHa/w+gvqW9ElRN6C1Bit6SlmtA==",
+  "dgSpecHash": "NigZBx7gBFoerIfVAtPEN6M0ypZxaf2/6hpgL6zDadikrgE1GKyaBTV+CH4Vd40da+PfinpJVEK5WabxSWU0mg==",
   "success": true,
   "projectFilePath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Windows/Setup/DriverSetupWixAction/DriverSetupWixAction.csproj",
   "expectedPackageFiles": [
-    "/root/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.netframework.referenceassemblies.net461/1.0.2/microsoft.netframework.referenceassemblies.net461.1.0.2.nupkg.sha512",
-    "/root/.nuget/packages/runtime.linux-arm.runtime.native.system.io.ports/6.0.0/runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/runtime.linux-arm64.runtime.native.system.io.ports/6.0.0/runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/runtime.linux-x64.runtime.native.system.io.ports/6.0.0/runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/runtime.native.system.io.ports/6.0.0/runtime.native.system.io.ports.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/runtime.osx-arm64.runtime.native.system.io.ports/6.0.0/runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/runtime.osx-x64.runtime.native.system.io.ports/6.0.0/runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.codedom/6.0.0/system.codedom.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.io.filesystem.accesscontrol/5.0.0/system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.io.ports/6.0.0/system.io.ports.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.management/6.0.0/system.management.6.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
-    "/root/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512"
+    "/home/anthony/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/anthony/.nuget/packages/microsoft.netframework.referenceassemblies.net461/1.0.2/microsoft.netframework.referenceassemblies.net461.1.0.2.nupkg.sha512"
   ],
   "logs": []
 }

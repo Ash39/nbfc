@@ -2,7 +2,7 @@
 
 namespace NbfcProbe.CommandLineOptions
 {
-    [ApplicationInfo(Name = "ec-probe.exe", Description = "NoteBook FanControl EC probing tool")]
+    [ApplicationInfo(Name = "NbfcProbe", Description = "NoteBook FanControl EC probing tool")]
     public class Verbs
     {
         [Verb("dump", "Dump all EC registers")]

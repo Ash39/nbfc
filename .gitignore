@@ -1,3 +1,6 @@
-/.idea/
 /[B]bin/
-/[O]obj/
+/.idea/
+/*/*/bin/
+/*/*/obj/
+/*/bin/
+/*/obj/

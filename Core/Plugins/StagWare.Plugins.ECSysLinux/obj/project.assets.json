@@ -100,7 +100,7 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {}
+    "/home/anthony/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
@@ -108,11 +108,11 @@
       "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECSysLinux/StagWare.Plugins.ECSysLinux.csproj",
       "projectName": "StagWare.Plugins.ECSysLinux",
       "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECSysLinux/StagWare.Plugins.ECSysLinux.csproj",
-      "packagesPath": "/root/.nuget/packages/",
+      "packagesPath": "/home/anthony/.nuget/packages/",
       "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/Plugins/StagWare.Plugins.ECSysLinux/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "/home/anthony/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

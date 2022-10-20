@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.Extensions.Hosting.Systemd": "6.0.0",
           "StagWare.FanControl.Service": "1.0.0",
-          "Swashbuckle.AspNetCore": "6.2.3"
+          "Swashbuckle.AspNetCore": "6.2.3",
+          "LibreHardwareMonitorLib": "0.9.1.0"
         },
         "runtime": {
           "NbfcService.dll": {}
@@ -328,6 +329,14 @@
       "StagWare.Settings/1.0.0": {
         "runtime": {
           "StagWare.Settings.dll": {}
+        }
+      },
+      "LibreHardwareMonitorLib/0.9.1.0": {
+        "runtime": {
+          "LibreHardwareMonitorLib.dll": {
+            "assemblyVersion": "0.9.1.0",
+            "fileVersion": "0.9.1.0"
+          }
         }
       },
       "System.ServiceModel.Primitives/4.10.0.0": {
@@ -650,6 +659,11 @@
     },
     "StagWare.Settings/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LibreHardwareMonitorLib/0.9.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

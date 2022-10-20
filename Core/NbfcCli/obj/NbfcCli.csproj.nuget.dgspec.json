@@ -10,11 +10,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/NbfcCli.csproj",
         "projectName": "NbfcCli",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/NbfcCli.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/NbfcCli/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -76,11 +76,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj",
         "projectName": "StagWare.BiosInfo",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/StagWare.BiosInfo.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.BiosInfo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -128,11 +128,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj",
         "projectName": "StagWare.FanControl.Configurations",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/StagWare.FanControl.Configurations.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Configurations/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -190,11 +190,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl.Service/StagWare.FanControl.Service.csproj",
         "projectName": "StagWare.FanControl.Service",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl.Service/StagWare.FanControl.Service.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl.Service/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -259,11 +259,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj",
         "projectName": "StagWare.FanControl",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/StagWare.FanControl.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.FanControl/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -315,11 +315,11 @@
         "projectUniqueName": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Settings/StagWare.Settings.csproj",
         "projectName": "StagWare.Settings",
         "projectPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Settings/StagWare.Settings.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/anthony/.nuget/packages/",
         "outputPath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Core/StagWare.Settings/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

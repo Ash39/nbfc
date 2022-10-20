@@ -2,7 +2,7 @@
 
 namespace NbfcCli.CommandLineOptions
 {
-    [ApplicationInfo(Name = "nbfc.exe", Description = "NoteBook FanControl CLI client")]
+    [ApplicationInfo(Name = "NbfcCli", Description = "NoteBook FanControl CLI client")]
     public class Verbs
     {
         [Verb("start", "Start the service")]

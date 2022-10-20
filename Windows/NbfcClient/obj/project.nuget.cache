@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "dDwY7hQPgdV0XUt+GvtDvXEmS2mz7OOsgl6PE3xJ1yIU20RqB450DtuRt+tSk3RJUiRjx+b9pIBS7XrJ+spSzg==",
+  "dgSpecHash": "OnMNU6yXpmEWhr5aymC7gfgbOXgtRd2GKWCU44jEnLslAErJa60x1hhvHGjE8SeiKzkAjTCyQF3hPdLqn5sbNg==",
   "success": true,
   "projectFilePath": "/mnt/localdisk/Projects/vsProjects/nbfc-net6/Windows/NbfcClient/NbfcClient.csproj",
   "expectedPackageFiles": [
-    "/root/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.netframework.referenceassemblies.net461/1.0.2/microsoft.netframework.referenceassemblies.net461.1.0.2.nupkg.sha512"
+    "/home/anthony/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/anthony/.nuget/packages/microsoft.netframework.referenceassemblies.net461/1.0.2/microsoft.netframework.referenceassemblies.net461.1.0.2.nupkg.sha512"
   ],
   "logs": []
 }
