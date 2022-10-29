@@ -25,6 +25,7 @@ namespace StagWare.FanControl.Service
         #region Private Fields
 
         private readonly ILogger logger;
+        private readonly ILoggerFactory loggerFactory;
         private static readonly string ConfigsDirectory = Path.Combine(
                 Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
                 ConfigsDirectoryName);
@@ -38,9 +39,10 @@ namespace StagWare.FanControl.Service
 
         #region Constructors
 
-        public FanControlService(ILogger<FanControlService> logger)
+        public FanControlService(ILoggerFactory loggerFactory)
         {
-            this.logger = logger;
+            this.loggerFactory = loggerFactory;
+            this.logger = loggerFactory.CreateLogger<FanControlService>();
             SettingsService.BaseDirectory = Environment.OSVersion.Platform == PlatformID.Unix
                 ? "/etc/"
                 : Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
@@ -86,19 +88,15 @@ namespace StagWare.FanControl.Service
                 Enabled = false,
                 ReadOnly = SettingsService.Settings.ReadOnly,
                 SelectedConfig = this.selectedConfig,
-                Temperature = 0
             };
 
             if (!this.disposed && this.fanControl != null)
             {
                 info.Enabled = this.fanControl.Enabled;
                 info.ReadOnly = this.fanControl.ReadOnly;
-                info.TemperatureSourceDisplayName = this.fanControl.TemperatureSourceDisplayName;
 
                 if (this.fanControl.Enabled)
                 {
-                    info.Temperature = (int)Math.Round(fanControl.Temperature);
-
                     ReadOnlyCollection<FanInformation> fanInfo = this.fanControl.FanInformation;
                     info.FanStatus = new FanStatus[fanInfo.Count];
 
@@ -111,7 +109,10 @@ namespace StagWare.FanControl.Service
                             CurrentFanSpeed = fanInfo[i].CurrentFanSpeed,
                             TargetFanSpeed = fanInfo[i].TargetFanSpeed,
                             FanDisplayName = fanInfo[i].FanDisplayName,
-                            FanSpeedSteps = this.fanSpeedSteps[i]
+                            FanSpeedSteps = this.fanSpeedSteps[i],
+                            Temperature = this.fanControl.Temperatures[i],
+                            TemperatureSourceDisplayName = this.fanControl.TemperatureSourceDisplayNames(fanInfo[i].DeviceVendor)
+                            
                         };
                     }
                 }
@@ -195,6 +196,7 @@ namespace StagWare.FanControl.Service
                     {
                         this.fanControl.Dispose();
                         this.fanControl = null;
+                        Start();
                     }
                 }
             }
@@ -301,7 +303,7 @@ namespace StagWare.FanControl.Service
                     SaveSettings();
                 }
 
-                fanControl = new FanControl(cfg);
+                fanControl = new FanControl(cfg, loggerFactory);
 
                 for (int i = 0; i < speeds.Length; i++)
                 {

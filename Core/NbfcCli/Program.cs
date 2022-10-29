@@ -239,9 +239,7 @@ namespace NbfcCli
             sb.AppendLine();
             sb.AppendFormat("Selected config name\t: {0}", info.SelectedConfig);
             sb.AppendLine();
-            sb.AppendFormat("Temperature\t\t: {0}", info.Temperature);
-            sb.AppendLine();
-
+            
             Console.WriteLine(sb.ToString());
         }
 
@@ -251,6 +249,8 @@ namespace NbfcCli
             sb.AppendFormat("Fan display name\t: {0}", status.FanDisplayName);
             sb.AppendLine();
             sb.AppendFormat("Auto control enabled\t: {0}", status.AutoControlEnabled);
+            sb.AppendLine();
+            sb.AppendFormat("Temperature\t\t: {0}", status.Temperature);
             sb.AppendLine();
             sb.AppendFormat("Critical mode enabled\t: {0}", status.CriticalModeEnabled);
             sb.AppendLine();
@@ -282,14 +282,6 @@ namespace NbfcCli
                 {
                     action(client);
                 }
-            }
-            catch (CommunicationObjectFaultedException)
-            {
-                Console.Error.WriteLine("The service is unavailable");
-            }
-            catch (TimeoutException)
-            {
-                Console.Error.WriteLine("The connection to the service timed out");
             }
             catch (Exception e)
             {

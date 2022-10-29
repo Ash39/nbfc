@@ -3,7 +3,11 @@ using StagWare.FanControl.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseSystemd();
+if (Environment.OSVersion.Platform == PlatformID.Unix)
+{
+    builder.Host.UseSystemd();
+}
+
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -15,7 +19,7 @@ FanControlService service = new FanControlService(LoggerFactory.Create((loggingB
     loggingBuilder
         .SetMinimumLevel(LogLevel.Trace)
         .AddConsole();
-}).CreateLogger<FanControlService>());
+}));
 
 builder.Services.AddSingleton<FanControlService>(service);
 

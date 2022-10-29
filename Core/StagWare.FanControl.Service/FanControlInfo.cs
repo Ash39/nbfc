@@ -9,11 +9,7 @@ namespace StagWare.FanControl.Service
         public bool ReadOnly { get; set; }
 
         public FanStatus[] FanStatus { get; set; }
-
-        public int Temperature { get; set; }
-
-        public string TemperatureSourceDisplayName { get; set; }
-
+        
         public string SelectedConfig { get; set; }
     }
 }

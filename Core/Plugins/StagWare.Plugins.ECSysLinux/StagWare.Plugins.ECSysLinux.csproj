@@ -6,15 +6,12 @@
     <Nullable>enable</Nullable>
     <OutputPath>../../../bin/Plugins</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Mono.Posix.NETStandard">
-      <HintPath>..\..\..\..\..\..\..\..\home\anthony\.nuget\packages\mono.posix.netstandard\1.0.0\ref\netstandard2.0\Mono.Posix.NETStandard.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ComponentModel.Composition">
-      <HintPath>..\..\..\..\..\..\..\..\home\anthony\.nuget\packages\system.componentmodel.composition\6.0.0\lib\net6.0\System.ComponentModel.Composition.dll</HintPath>
-    </Reference>
+    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>

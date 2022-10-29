@@ -3,6 +3,8 @@
     public interface ITemperatureMonitor : IFanControlPlugin
     {
         string TemperatureSourceDisplayName { get; }
-        double GetTemperature();
+        double Temperature { get; }
+        string VendorName { get; }
+        void PollTemperature();
     }
 }

@@ -32,6 +32,7 @@ namespace StagWare.FanControl.Configurations
         public bool ResetRequired { get; set; }
         public int FanSpeedResetValue { get; set; }
         public string FanDisplayName { get; set; }
+        public string DeviceVendor { get; set; }
         public List<TemperatureThreshold> TemperatureThresholds { get; set; }
         public List<FanSpeedPercentageOverride> FanSpeedPercentageOverrides { get; set; }
 
@@ -75,6 +76,7 @@ namespace StagWare.FanControl.Configurations
                 MaxSpeedValueRead = this.MaxSpeedValueRead,
                 FanSpeedResetValue = this.FanSpeedResetValue,
                 FanDisplayName = this.FanDisplayName,
+                DeviceVendor = this.DeviceVendor,
                 TemperatureThresholds = this.TemperatureThresholds
                     .Select(x => x.Clone() as TemperatureThreshold).ToList(),
                 FanSpeedPercentageOverrides = this.FanSpeedPercentageOverrides

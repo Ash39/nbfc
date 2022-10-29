@@ -75,6 +75,7 @@ namespace StagWare.FanControl.Tests
 
                 var tempMon = A.Fake<ITemperatureMonitor>();
                 A.CallTo(() => tempMon.IsInitialized).Returns(true);
+                
 
                 var fan = A.Fake<Fan>(opt => opt.WithArgumentsForConstructor(
                     new object[] { ec, fanCfg, 70, false }));
@@ -83,7 +84,7 @@ namespace StagWare.FanControl.Tests
                 var tsc = new TaskCompletionSource<bool>();
                 Task<bool> task = tsc.Task;
 
-                using (var fanControl = new FanControl(cfg, filter, ec, tempMon, new[] { fan }))
+                using (var fanControl = new FanControl(cfg, filter, ec, new ITemperatureMonitor[]{tempMon}, new[] { fan }))
                 {
                     fanControl.EcUpdated += (s, e) =>
                     {

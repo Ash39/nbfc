@@ -1,6 +1,4 @@
-﻿using Mono.Unix;
-using Mono.Unix.Native;
-using StagWare.FanControl.Plugins;
+﻿using StagWare.FanControl.Plugins;
 using StagWare.Hardware.LPC;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
@@ -21,14 +19,14 @@ namespace StagWare.Plugins
         #region Constants
 
         const string PortFilePath = "/dev/port";
-
+        
         #endregion
 
         #region Private Fields
 
         static readonly object syncRoot = new object();
         bool disposed = false;
-        UnixStream stream;
+        int fd = -1;
 
         #endregion
 
@@ -74,19 +72,18 @@ namespace StagWare.Plugins
                     return false;
                 }
 
-                if(this.stream == null)
+                if(this.fd == -1)
                 {
-                    int fd = Syscall.open(PortFilePath, OpenFlags.O_RDWR | OpenFlags.O_EXCL);
+                    fd = SysCall.open(PortFilePath, SysCall.OpenFlags.O_RDWR | SysCall.OpenFlags.O_EXCL);
 
                     if (fd == -1)
                     {
                         throw new Win32Exception(Marshal.GetLastWin32Error());
                     }
-
-                    this.stream = new UnixStream(fd);
+                    
                 }
+                success = this.fd != -1;
 
-                success = this.stream != null;
             }
             catch(Exception e)
             {
@@ -112,10 +109,10 @@ namespace StagWare.Plugins
 
             try
             {
-                if (this.stream != null)
+                if (this.fd != -1)
                 {
-                    this.stream.Dispose();
-                    this.stream = null;
+                    SysCall.close(fd);
+                    fd = -1;
                 }
             }
             finally
@@ -128,10 +125,10 @@ namespace StagWare.Plugins
         {
             lock (syncRoot)
             {
-                if (this.stream != null)
+                if (this.fd != -1)
                 {
-                    this.stream.Dispose();
-                    this.stream = null;
+                    SysCall.close(fd);
+                    fd = -1;
                 }
 
                 disposed = true;
@@ -144,17 +141,29 @@ namespace StagWare.Plugins
 
         protected override void WritePort(int port, byte value)
         {
-            byte[] buffer = new byte[] { value };
-            this.stream.WriteAtOffset(buffer, 0, buffer.Length, port);
+            unsafe
+            {
+                byte[] buffer = new byte[] { value };
+                GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+                
+                SysCall.pwrite(this.fd, handle.AddrOfPinnedObject(), (ulong) buffer.Length, port);
+                
+                handle.Free();
+            }
         }
 
         protected override byte ReadPort(int port)
         {
             byte[] buffer = new byte[1];
-            this.stream.ReadAtOffset(buffer, 0, buffer.Length, port);
+            GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+                
+            SysCall.pread(this.fd, handle.AddrOfPinnedObject(), (ulong) buffer.Length, port);
+                
+            handle.Free();
 
             return buffer[0];
         }
+        
 
         #endregion
     }

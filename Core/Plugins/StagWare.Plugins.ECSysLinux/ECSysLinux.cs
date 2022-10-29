@@ -1,6 +1,4 @@
-﻿using Mono.Unix;
-using Mono.Unix.Native;
-using StagWare.FanControl.Plugins;
+﻿using StagWare.FanControl.Plugins;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
@@ -29,7 +27,7 @@ namespace StagWare.Plugins.ECSysLinux
 
         static readonly object syncRoot = new object();
         bool disposed = false;
-        UnixStream stream;
+        int fd = -1;
 
         #endregion
 
@@ -60,7 +58,11 @@ namespace StagWare.Plugins.ECSysLinux
         public void WriteByte(byte register, byte value)
         {
             byte[] buffer = new byte[] { value };
-            this.stream.WriteAtOffset(buffer, 0, buffer.Length, register);
+            GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+                
+            SysCall.pwrite(this.fd, handle.AddrOfPinnedObject(), (ulong) buffer.Length, register);
+                
+            handle.Free();
         }
 
         public void WriteWord(byte register, ushort value)
@@ -70,13 +72,21 @@ namespace StagWare.Plugins.ECSysLinux
             byte lsb = (byte)value;
 
             byte[] buffer = new byte[] { lsb, msb };
-            this.stream.WriteAtOffset(buffer, 0, buffer.Length, register);
+            GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+                
+            SysCall.pwrite(this.fd, handle.AddrOfPinnedObject(), (ulong) buffer.Length, register);
+                
+            handle.Free();
         }
 
         public byte ReadByte(byte register)
         {
             byte[] buffer = new byte[1];
-            this.stream.ReadAtOffset(buffer, 0, buffer.Length, register);
+            GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+                
+            SysCall.pread(this.fd, handle.AddrOfPinnedObject(), (ulong) buffer.Length, register);
+                
+            handle.Free();
 
             return buffer[0];
         }
@@ -85,7 +95,11 @@ namespace StagWare.Plugins.ECSysLinux
         {
             // little endian
             byte[] buffer = new byte[2];
-            this.stream.ReadAtOffset(buffer, 0, buffer.Length, register);
+            GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+                
+            SysCall.pread(this.fd, handle.AddrOfPinnedObject(), (ulong) buffer.Length, register);
+                
+            handle.Free();
 
             return (ushort)((buffer[1] << 8) | buffer[0]);
         }
@@ -109,19 +123,17 @@ namespace StagWare.Plugins.ECSysLinux
                     return false;
                 }
 
-                if (this.stream == null)
+                if(this.fd == -1)
                 {
-                    int fd = Syscall.open(EC0IOPath, OpenFlags.O_RDWR | OpenFlags.O_EXCL);
+                    fd = SysCall.open(EC0IOPath, SysCall.OpenFlags.O_RDWR | SysCall.OpenFlags.O_EXCL);
 
                     if (fd == -1)
                     {
                         throw new Win32Exception(Marshal.GetLastWin32Error());
                     }
-
-                    this.stream = new UnixStream(fd);
+                    
                 }
-
-                success = this.stream != null;
+                success = this.fd != -1;
             }
             catch(Exception e)
             {
@@ -147,10 +159,10 @@ namespace StagWare.Plugins.ECSysLinux
 
             try
             {
-                if (this.stream != null)
+                if (this.fd != -1)
                 {
-                    this.stream.Dispose();
-                    this.stream = null;
+                    SysCall.close(fd);
+                    fd = -1;
                 }
             }
             finally
@@ -163,10 +175,10 @@ namespace StagWare.Plugins.ECSysLinux
         {
             lock (syncRoot)
             {
-                if (this.stream != null)
+                if (this.fd != -1)
                 {
-                    this.stream.Dispose();
-                    this.stream = null;
+                    SysCall.close(fd);
+                    fd = -1;
                 }
 
                 disposed = true;

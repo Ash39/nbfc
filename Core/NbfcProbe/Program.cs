@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using Microsoft.Extensions.Logging;
 
 namespace NbfcProbe
 {
@@ -407,7 +408,11 @@ namespace NbfcProbe
 
         private static IEmbeddedController LoadEC()
         {
-            var ecLoader = new FanControlPluginLoader<IEmbeddedController>(FanControl.PluginsDirectory);
+            var ecLoader = new FanControlPluginLoader<IEmbeddedController>(FanControl.PluginsDirectory, LoggerFactory.Create((loggingBuilder) =>
+            {
+                loggingBuilder
+                    .SetMinimumLevel(LogLevel.Trace);
+            }));
 
             if (ecLoader.FanControlPlugin == null)
             {

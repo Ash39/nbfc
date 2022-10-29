@@ -44,7 +44,9 @@ namespace StagWare.Plugins.Generic
         }
 
         public string TemperatureSourceDisplayName { get; private set; }
-
+        public double Temperature { get; private set; }
+        public string VendorName => "Generic Device";
+        
         public void Initialize()
         {
             if (!this.IsInitialized)
@@ -66,8 +68,8 @@ namespace StagWare.Plugins.Generic
                 this.IsInitialized = (this.sources != null) && (this.sources.Count > 0);
             }
         }        
-
-        public double GetTemperature()
+        
+        public void PollTemperature()
         {
             double temp = 0;
 
@@ -76,9 +78,9 @@ namespace StagWare.Plugins.Generic
                 temp += GetTemperature(src.FilePath, src.Multiplier);
             }
 
-            return temp / this.sources.Count;
+            Temperature = temp / this.sources.Count;
         }
-
+        
         public void Dispose()
         {
         }

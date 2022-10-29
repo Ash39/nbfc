@@ -1,5 +1,4 @@
-﻿using NLog;
-using StagWare.FanControl.Configurations;
+﻿using StagWare.FanControl.Configurations;
 using StagWare.FanControl.Plugins;
 using System;
 using System.Collections.ObjectModel;
@@ -8,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using Microsoft.Extensions.Logging;
 
 namespace StagWare.FanControl
 {
@@ -36,7 +36,7 @@ namespace StagWare.FanControl
         #region Private Fields
 
         private readonly object syncRoot = new object();
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly ILogger<FanControl> logger;
 
         private Timer timer;
         private readonly AsyncOperation asyncOp;
@@ -46,12 +46,12 @@ namespace StagWare.FanControl
         private readonly FanControlConfigV2 config;
 
         private readonly ITemperatureFilter tempFilter;
-        private readonly ITemperatureMonitor tempMon;
+        private readonly IDictionary<string,ITemperatureMonitor> tempMonitors;
         private readonly IEmbeddedController ec;
         private readonly Fan[] fans;
 
         private volatile bool readOnly;
-        private volatile float temperature;
+        private volatile float[] temperatures;
         private volatile FanInformation[] fanInfo;
         private readonly float[] requestedSpeeds;
 
@@ -59,22 +59,28 @@ namespace StagWare.FanControl
 
         #region Constructor        
 
-        public FanControl(FanControlConfigV2 config) : this(config, PluginsDirectory)
+        public FanControl(FanControlConfigV2 config, ILoggerFactory loggerFactory) : this(config, PluginsDirectory, loggerFactory)
         {
         }
 
-        public FanControl(FanControlConfigV2 config, string pluginsDirectory) : this(
+        public FanControl(FanControlConfigV2 config, string pluginsDirectory, ILoggerFactory loggerFactory) : this(
             config,
             CreateTemperatureFilter(config),
-            pluginsDirectory)
+            pluginsDirectory, 
+            loggerFactory)
         {
         }
 
-        public FanControl(FanControlConfigV2 config, ITemperatureFilter filter, string pluginsDirectory) : this(
+        public FanControl(FanControlConfigV2 config, ITemperatureFilter filter, string pluginsDirectory, ILoggerFactory loggerFactory) : this(
             config,
             filter,
-            LoadPlugin<IEmbeddedController>(pluginsDirectory),
-            LoadPlugin<ITemperatureMonitor>(pluginsDirectory))
+            LoadPlugin<IEmbeddedController>(pluginsDirectory, loggerFactory),
+             new ITemperatureMonitor[]
+             {
+                 LoadPlugin<ITemperatureMonitor>(pluginsDirectory, loggerFactory), 
+                 LoadPlugin<ITemperatureMonitor>(pluginsDirectory, loggerFactory)
+             },
+            loggerFactory)
         {
         }
 
@@ -82,7 +88,8 @@ namespace StagWare.FanControl
             FanControlConfigV2 config,
             ITemperatureFilter filter,
             IEmbeddedController ec,
-            ITemperatureMonitor tempMon)
+            ITemperatureMonitor[] tempMonitors,
+            ILoggerFactory loggerFactory)
         {
             if (config == null)
             {
@@ -99,13 +106,21 @@ namespace StagWare.FanControl
                 throw new ArgumentNullException(nameof(ec));
             }
 
-            if (tempMon == null)
+            if (tempMonitors == null)
             {
-                throw new ArgumentNullException(nameof(tempMon));
+                throw new ArgumentNullException(nameof(tempMonitors));
             }
 
+            logger = loggerFactory.CreateLogger<FanControl>();
+
             this.ec = ec;
-            this.tempMon = tempMon;
+            this.tempMonitors = new Dictionary<string, ITemperatureMonitor>();
+            foreach (var tempMonitor in tempMonitors)  
+            {
+                this.tempMonitors.Add(tempMonitor.VendorName, tempMonitor);
+            }
+
+            this.temperatures = new float[tempMonitors.Length];
             this.tempFilter = filter;
             this.config = (FanControlConfigV2)config.Clone();
             this.pollInterval = config.EcPollInterval;
@@ -123,8 +138,12 @@ namespace StagWare.FanControl
                 {
                     cfg.FanDisplayName = "Fan #" + (i + 1);
                 }
+                if (string.IsNullOrWhiteSpace(cfg.DeviceVendor))
+                {
+                    cfg.DeviceVendor = "Generic Device";
+                }
 
-                this.fanInfo[i] = new FanInformation(0, 0, true, false, cfg.FanDisplayName);
+                this.fanInfo[i] = new FanInformation(0, 0, true, false, cfg.FanDisplayName, cfg.DeviceVendor);
                 this.fans[i] = new Fan(this.ec, cfg, config.CriticalTemperature, config.ReadWriteWords);
                 this.requestedSpeeds[i] = AutoFanSpeedPercentage;
             }
@@ -134,8 +153,10 @@ namespace StagWare.FanControl
             FanControlConfigV2 config,
             ITemperatureFilter filter,
             IEmbeddedController ec,
-            ITemperatureMonitor tempMon,
-            Fan[] fans) : this(config, filter, ec, tempMon)
+            ITemperatureMonitor[]
+                tempMonitors,
+            Fan[] fans,
+            ILoggerFactory loggerFactory) : this(config, filter, ec, tempMonitors, loggerFactory)
         {
             if (fans == null)
             {
@@ -152,7 +173,7 @@ namespace StagWare.FanControl
             this.fans = fans;
         }
 
-        private static T LoadPlugin<T>(string pluginsDirectory) where T : IFanControlPlugin
+        private static T LoadPlugin<T>(string pluginsDirectory, ILoggerFactory loggerFactory) where T : IFanControlPlugin
         {
             if (pluginsDirectory == null)
             {
@@ -164,7 +185,7 @@ namespace StagWare.FanControl
                 throw new DirectoryNotFoundException(pluginsDirectory + " could not be found.");
             }
 
-            var pluginLoader = new FanControlPluginLoader<T>(pluginsDirectory);
+            var pluginLoader = new FanControlPluginLoader<T>(pluginsDirectory, loggerFactory);
 
             if (pluginLoader.FanControlPlugin == null)
             {
@@ -210,9 +231,9 @@ namespace StagWare.FanControl
             }
         }
 
-        public float Temperature
+        public float[] Temperatures
         {
-            get { return this.temperature; }
+            get { return this.temperatures; }
         }
 
         public bool Enabled
@@ -225,20 +246,7 @@ namespace StagWare.FanControl
             get { return this.readOnly; }
         }
 
-        public string TemperatureSourceDisplayName
-        {
-            get
-            {
-                if (this.tempMon == null || !this.tempMon.IsInitialized)
-                {
-                    return null;
-                }
-                else
-                {
-                    return this.tempMon.TemperatureSourceDisplayName;
-                }
-            }
-        }
+        
 
         public ReadOnlyCollection<FanInformation> FanInformation
         {
@@ -277,17 +285,20 @@ namespace StagWare.FanControl
             }
             else
             {
-                if (!this.tempMon.IsInitialized)
+                foreach (var tempMonitor in tempMonitors)
                 {
-                    this.tempMon.Initialize();
-
-                    if (!this.tempMon.IsInitialized)
+                    if (!tempMonitor.Value.IsInitialized)
                     {
-                        throw new PluginInitializationException(
-                            "Could not initialize plugin of type " + nameof(ITemperatureMonitor));
+                        tempMonitor.Value.Initialize();
+
+                        if (!tempMonitor.Value.IsInitialized)
+                        {
+                            throw new PluginInitializationException(
+                                "Could not initialize plugin of type " + nameof(ITemperatureMonitor));
+                        }
                     }
                 }
-
+                
                 if (!this.ec.IsInitialized)
                 {
                     this.ec.Initialize();
@@ -341,6 +352,18 @@ namespace StagWare.FanControl
                 StopFanControlCore();
             }
         }
+        
+        public string TemperatureSourceDisplayNames(string deviceVendor)
+        {
+            if (this.tempMonitors == null)
+            {
+                return null;
+            }
+            else
+            {
+                return this.tempMonitors[deviceVendor].TemperatureSourceDisplayName;
+            }
+        }
 
         #endregion
 
@@ -372,18 +395,20 @@ namespace StagWare.FanControl
 
                 // We don't know which locks the plugins try to acquire internally,
                 // therefore never try to access tempMon after calling ec.AcquireLock()
-                double temp = this.tempMon.GetTemperature();
-                this.temperature = (float)this.tempFilter.FilterTemperature(temp);
-
+                foreach (var tempMonitor in tempMonitors)
+                {
+                    tempMonitor.Value.PollTemperature();
+                }
+                
                 if (this.ec.AcquireLock(EcTimeout))
                 {
                     try
                     {
-                        UpdateEc(this.temperature);
+                        UpdateEc();
                     }
                     catch (Exception e)
                     {
-                        logger.Error(e, "Could not update the EC");
+                        logger.LogError(e, "Could not update the EC");
                     }
                     finally
                     {
@@ -402,7 +427,7 @@ namespace StagWare.FanControl
             }
         }
 
-        private void UpdateEc(float temperature)
+        private void UpdateEc()
         {
             // Re-init if current fan speeds are off by more than 15%
             bool reInitRequired = false;
@@ -426,8 +451,18 @@ namespace StagWare.FanControl
             // Set requested fan speeds
             for (int i = 0; i < this.fans.Length; i++)
             {
+                double temp = (float)this.tempMonitors[this.fanInfo[i].DeviceVendor].Temperature;
+
+                if (tempMonitors.Count > 1)
+                {
+                    this.temperatures[i] = (float)temp;
+                }
+                else
+                {
+                    this.temperatures[i] = (float)tempFilter.FilterTemperature(temp);
+                }
                 float speed = Thread.VolatileRead(ref this.requestedSpeeds[i]);
-                this.fans[i].SetTargetSpeed(speed, temperature, readOnly);
+                this.fans[i].SetTargetSpeed(speed, temperatures[i], readOnly);
             }
 
             // Update fanInfo
@@ -447,7 +482,7 @@ namespace StagWare.FanControl
                     this.fans[i].CurrentSpeed,
                     this.fans[i].AutoControlEnabled,
                     this.fans[i].CriticalModeEnabled,
-                    this.config.FanConfigurations[i].FanDisplayName);
+                    this.config.FanConfigurations[i].FanDisplayName, this.config.FanConfigurations[i].DeviceVendor);
             }
 
             return info;
@@ -585,7 +620,7 @@ namespace StagWare.FanControl
                 }
                 catch (Exception e)
                 {
-                    logger.Error(e, "EC reset failed");
+                    logger.LogError(e, "EC reset failed");
                 }
                 finally
                 {
@@ -648,10 +683,19 @@ namespace StagWare.FanControl
                     this.ec.Dispose();
                 }
 
-                if (this.tempMon != null)
+                if (this.tempMonitors != null)
                 {
-                    this.tempMon.Dispose();
+                    foreach (var tempMonitor in tempMonitors)
+                    {
+                        if (tempMonitor.Value != null)
+                        {
+                            tempMonitor.Value.Dispose();
+                        }
+                    }
+                    
                 }
+                
+                FanControlPluginLoader.Dispose();
 
                 GC.SuppressFinalize(this);
             }

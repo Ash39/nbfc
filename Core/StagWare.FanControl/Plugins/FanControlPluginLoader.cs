@@ -1,15 +1,27 @@
-﻿using NLog;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace StagWare.FanControl.Plugins
 {
+    public class FanControlPluginLoader
+    {
+        internal static readonly List<Type> typeHash = new List<Type>();
+        
+        internal static void Dispose()
+        {
+            typeHash.Clear();
+        }
+    }
+
     public class FanControlPluginLoader<T> where T : IFanControlPlugin
     {
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private static ILogger<FanControlPluginLoader<T>> logger;
+
+        
 
         T fanControlPlugin;
         string fanControlPluginId;
@@ -43,8 +55,9 @@ namespace StagWare.FanControl.Plugins
         [ImportMany]
         public IEnumerable<Lazy<T, IFanControlPluginMetadata>> Plugins { get; set; }
 
-        public FanControlPluginLoader(string path)
+        public FanControlPluginLoader(string path, ILoggerFactory loggerFactory)
         {
+            logger = loggerFactory.CreateLogger<FanControlPluginLoader<T>>();
             var dirCatalog = new DirectoryCatalog(path);
             var aggCatalog = new AggregateCatalog(dirCatalog);
             var container = new CompositionContainer(aggCatalog);
@@ -115,14 +128,23 @@ namespace StagWare.FanControl.Plugins
         {
             bool isPluginInitialized = false;
 
+            if (FanControlPluginLoader.typeHash.Contains(plugin.GetType()))
+            {
+                return false;
+            }
+            
             try
             {
                 plugin.Initialize();
                 isPluginInitialized = plugin.IsInitialized;
+                if (isPluginInitialized)
+                {
+                    FanControlPluginLoader.typeHash.Add(plugin.GetType());
+                }
             }
             catch (Exception e)
             {
-                logger.Warn(e, "Plugin initialization failed");
+                logger.LogWarning(e, "Plugin initialization failed");
             }
 
             if (!isPluginInitialized)
@@ -133,7 +155,7 @@ namespace StagWare.FanControl.Plugins
                 }
                 catch (Exception e)
                 {
-                    logger.Warn(e, "Plugin disposal failed");
+                    logger.LogWarning(e, "Plugin disposal failed");
                 }
             }
 
@@ -172,5 +194,7 @@ namespace StagWare.FanControl.Plugins
 
             return true;
         }
+
+        
     }
 }

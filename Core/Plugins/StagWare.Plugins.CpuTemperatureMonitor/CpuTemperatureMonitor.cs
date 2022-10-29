@@ -37,16 +37,10 @@ namespace StagWare.Plugins.Generic
             get { return DisplayName; }
         }
 
-        public void Initialize()
-        {
-            if (!this.IsInitialized)
-            {
-                this.IsInitialized = true;
-                this.hwMon = HardwareMonitor.Instance;
-            }
-        }
+        public double Temperature { get; private set; }
 
-        public double GetTemperature()
+        public string VendorName => "Generic Device";
+        public void PollTemperature()
         {
             KeyValuePair<string, double>[] temps = this.hwMon.CpuTemperatures;
 
@@ -57,7 +51,16 @@ namespace StagWare.Plugins.Generic
                 temperature += pair.Value;
             }
 
-            return temperature / temps.Length;
+            Temperature = temperature / temps.Length;
+        }
+
+        public void Initialize()
+        {
+            if (!this.IsInitialized)
+            {
+                this.IsInitialized = true;
+                this.hwMon = HardwareMonitor.Instance;
+            }
         }
 
         public void Dispose()

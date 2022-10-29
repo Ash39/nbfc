@@ -7,16 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="NLog">
-      <HintPath>..\..\..\..\..\..\..\home\anthony\.nuget\packages\nlog\5.0.4\lib\netstandard2.0\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ComponentModel.Composition">
-      <HintPath>..\..\..\..\..\..\..\home\anthony\.nuget\packages\system.componentmodel.composition\6.0.0\lib\net6.0\System.ComponentModel.Composition.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\StagWare.Configurations\StagWare.FanControl.Configurations.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Composition" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
